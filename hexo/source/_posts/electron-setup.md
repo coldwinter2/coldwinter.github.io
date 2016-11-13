@@ -2,6 +2,7 @@
 title: Electron 安装
 date: 2016-11-12 12:12:45
 tags: Electron
+category: Electron
 ---
 
 &nbsp;&nbsp;&nbsp;&nbsp;对于node.js的各种模块安装，最头疼的莫过于下载了。安装包体积巨大，GFW功能强大，服务器在国外，下载成功的几率很小。因此Electron的安装也是很麻烦的。

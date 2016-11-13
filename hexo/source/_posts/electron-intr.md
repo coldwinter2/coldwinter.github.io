@@ -2,6 +2,7 @@
 title:  Electron 简介
 date: 2016-11-12 12:10:20
 tags: Electron
+category: Electron
 ---
 
 [Electron](http://electron.atom.io/)是一个基于node.js的跨平台桌面应用组件（暂且称之为组件，对node.js只是初学，不知道标准的称呼是什么）。
