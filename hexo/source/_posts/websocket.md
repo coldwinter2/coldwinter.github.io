@@ -31,7 +31,7 @@ category:
 5. 安装express ` npm install express ` (注意，此处非全局安装)
 6. 安装socket.io ` npm install socket.io ` (同上)
 7. 创建web目录www ` mkdir www `
-8. 创建js目录 ` mkdir www/js ` 
+8. 创建js目录 ` mkdir www/js ` （这一步在本文内无用，是用来放客户端js代码的)
 9. 在js目录中安装socket.io.js,这个文件在 `node\_modules/socket.io\_client` 内
 10. 创建相应的 `index.js`、`www/index.html`文件
 
@@ -48,8 +48,14 @@ OK，基本的环境搭建到此结束。下面开始踩坑。
 <script src="socket.io/socket.io.js"></script>
 ```
 
-其实这个socket.io.js可以放在任何位置，然而很多人发现了，按照教程，socket.io怎么也无法连接成功。而且打开浏览器的web选项，还能看到一个http请求 http://localhost:xxxx/socket.io/?EIO=xxxx  返回了404错误。很可能会联想到，和这个文件的路径有关。
-初学者很容易联想到奇奇怪怪的规则，其实和这个没关系，而和服务端的代码有关。
+这让很多刚来入门的新人，以为，需要吧socket.io.js放在一个叫做socket.io的文件夹里，并且提供访问。其实是没必要的。
+因为已经存在一个叫socket.io\_client的包，在socket.io在创建的时候会自己注册一个socket.io的url访问，因此用户无需干预。
+
+其实这个socket.io.js也可以放在任何位置，只要从[socket.io](http://socket.io/)下载对应的socket的独立js文件，就当做普通的js一样一用就可以了，无需了解服务端内部究竟干了什么。
+
+然而很多人发现了，按照教程，socket.io怎么也无法连接成功。如果自己手动引入了别的socket.io.js而且打开浏览器的开发者工具，就会看到一个http请求 http://localhost:xxxx/socket.io/?EIO=xxxx  返回了404错误。由此很可能会联想到，和这个文件的路径有关。
+
+其实这个错误和这个没关系，而和服务端的代码有关。
 这就引出了教程中的第二个坑。
 
 
