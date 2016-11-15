@@ -1,4 +1,28 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="随手记录一些技术方面的资料"><title>Express + socket.io 聊天程序踩坑实录 | coldwinter的学习笔记</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Express + socket.io 聊天程序踩坑实录</h1><a id="logo" href="/.">coldwinter的学习笔记</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 目录</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Express + socket.io 聊天程序踩坑实录</h1><div class="post-meta">Nov 14, 2016<span> | </span><span class="category"><a href="/categories/node-js/">node.js</a><a href="/categories/node-js/webSocket/">webSocket</a></span></div><a data-thread-key="2016/11/websocket/" href="/2016/11/websocket/#comments" class="ds-thread-count"></a><div class="post-content"><h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;本文其实没有其实没有很特别的内容，只不过是写一个简单的node.js下express+socket.io的基础示例。不过就是这样一个网上随处都可以找到的示例，却让我踩出了一个不大不小的坑。教程有很多，我随便贴一些连接上来，基本写法都一样，大部分应当都是复制粘贴来的。例如：</p>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>coldwinter的学习笔记</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://coldwinter2.github.io/"/>
+  <updated>2016-11-14T11:17:21.000Z</updated>
+  <id>http://coldwinter2.github.io/</id>
+  
+  <author>
+    <name>coldwinter</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Express + socket.io 聊天程序踩坑实录</title>
+    <link href="http://coldwinter2.github.io/2016/11/websocket/"/>
+    <id>http://coldwinter2.github.io/2016/11/websocket/</id>
+    <published>2016-11-14T05:20:13.000Z</published>
+    <updated>2016-11-14T11:17:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;本文其实没有其实没有很特别的内容，只不过是写一个简单的node.js下express+socket.io的基础示例。不过就是这样一个网上随处都可以找到的示例，却让我踩出了一个不大不小的坑。教程有很多，我随便贴一些连接上来，基本写法都一样，大部分应当都是复制粘贴来的。例如：</p>
 <p><a href="http://www.open-open.com/lib/view/open1402479198587.html" target="_blank" rel="external">使用Node.js+Socket.IO搭建WebSocket实时应用</a></p>
 <p><a href="http://www.cnblogs.com/Wayou/p/hichat_built_with_nodejs_socket.html" target="_blank" rel="external">Node.js + Web Socket 打造即时聊天程序嗨聊</a></p>
 <p><a href="http://www.tuicool.com/articles/fmeQVjZ" target="_blank" rel="external">NodeJS+Express+Socket.io的一个简单例子</a></p>
@@ -37,13 +61,147 @@
 <p>下面附上我自己的测试环境</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">node.js    v6.9.1</div><div class="line">socket.io  1.5.1</div><div class="line">socket.io_client  1.4.5</div><div class="line">express    4.14.0</div></pre></td></tr></table></figure>
 <p>踩过此坑，特此记录</p>
-</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://coldwinter2.github.io/2016/11/websocket/" data-id="civj0adc80006z8h5vdqvrv3y" class="article-share-link">分享到</a><div class="tags"><a href="/tags/webSocket/">webSocket</a><a href="/tags/socket-io/">socket.io</a></div><div class="post-nav"><a href="/2016/11/electron-setup/" class="next">Electron 安装</a></div><div data-thread-key="2016/11/websocket/" data-title="Express + socket.io 聊天程序踩坑实录" data-url="http://coldwinter2.github.io/2016/11/websocket/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/11/websocket/" data-title="Express + socket.io 聊天程序踩坑实录" data-url="http://coldwinter2.github.io/2016/11/websocket/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="http://coldwinter2.github.io"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Electron/">Electron</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/webSocket/">webSocket</a><span class="category-list-count">1</span></li></ul></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Electron/" style="font-size: 15px;">Electron</a> <a href="/tags/日记/" style="font-size: 15px;">日记</a> <a href="/tags/webSocket/" style="font-size: 15px;">webSocket</a> <a href="/tags/socket-io/" style="font-size: 15px;">socket.io</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/websocket/">Express + socket.io 聊天程序踩坑实录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/electron-setup/">Electron 安装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/electron-intr/">Electron 简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/style/">风格修改</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/hello-world/">第一篇文章</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">欢迎来访 © <a href="/." rel="nofollow">coldwinter的学习笔记.</a><script src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async="async"></script><spin id="busuanzi_container_site_pv">本站访问量<span id="busuanzi_value_site_pv"></span>次</spin></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'coldwinter'};
-(function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0]
-        || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;起因&quot;&gt;&lt;a href=&quot;#起因&quot; class=&quot;headerlink&quot; title=&quot;起因&quot;&gt;&lt;/a&gt;起因&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本文其实没有其实没有很特别的内容，只不过是写一个简单的node.js下express+soc
+    
+    </summary>
+    
+      <category term="node.js" scheme="http://coldwinter2.github.io/categories/node-js/"/>
+    
+      <category term="webSocket" scheme="http://coldwinter2.github.io/categories/node-js/webSocket/"/>
+    
+    
+      <category term="webSocket" scheme="http://coldwinter2.github.io/tags/webSocket/"/>
+    
+      <category term="socket.io" scheme="http://coldwinter2.github.io/tags/socket-io/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Electron 安装</title>
+    <link href="http://coldwinter2.github.io/2016/11/electron-setup/"/>
+    <id>http://coldwinter2.github.io/2016/11/electron-setup/</id>
+    <published>2016-11-12T04:12:45.000Z</published>
+    <updated>2016-11-14T01:38:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;对于node.js的各种模块安装，最头疼的莫过于下载了。安装包体积巨大，GFW功能强大，服务器在国外，下载成功的几率很小。因此Electron的安装也是很麻烦的。</p>
+<h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p>1、在安装步骤执行到 <code>&gt; node install.js</code> 时，按ctrl+c中断过程<br>2、阅读install.js的源代码<br>3、找到使用本地缓存的逻辑<br>4、手动下载zip文件，建立本地缓存，之后使用本地文件进行安装</p>
+<h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><p>1、下载所需的zip包，我在mac环境下的下载路径是</p>
+<blockquote>
+<p><a href="https://github.com/electron/electron/releases/download/v1.4.5/electron-v1.4.5-darwin-x64.zip" target="_blank" rel="external">https://github.com/electron/electron/releases/download/v1.4.5/electron-v1.4.5-darwin-x64.zip</a></p>
+</blockquote>
+<p>2、本地缓存目录为</p>
+<blockquote>
+<p>~/.electron/electron-v1.4.5-darwin-x64.zip</p>
+</blockquote>
+<p>3、手动下载的zip包放到缓存目录所在位置。</p>
+<p>4、重新执行 <code>npm install -g electron</code> 即可</p>
+<h3 id="授人以渔"><a href="#授人以渔" class="headerlink" title="授人以渔"></a>授人以渔</h3><p>上面的下载地址和缓存目录是通过阅读install.js脚本，尝试执行并打印部分变量得到的。<br>对于很多其它的使用npm安装的功能模块，都可以通过这个方法，解决下载问题。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;对于node.js的各种模块安装，最头疼的莫过于下载了。安装包体积巨大，GFW功能强大，服务器在国外，下载成功的几率很小。因此Electron的安装也是很麻烦的。&lt;/p&gt;
+&lt;h3 id=&quot;解决方案：&quot;&gt;&lt;a href=&quot;#解决
+    
+    </summary>
+    
+      <category term="Electron" scheme="http://coldwinter2.github.io/categories/Electron/"/>
+    
+    
+      <category term="Electron" scheme="http://coldwinter2.github.io/tags/Electron/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Electron 简介</title>
+    <link href="http://coldwinter2.github.io/2016/11/electron-intr/"/>
+    <id>http://coldwinter2.github.io/2016/11/electron-intr/</id>
+    <published>2016-11-12T04:10:20.000Z</published>
+    <updated>2016-11-14T01:38:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://electron.atom.io/" target="_blank" rel="external">Electron</a>是一个基于node.js的跨平台桌面应用组件（暂且称之为组件，对node.js只是初学，不知道标准的称呼是什么）。</p>
+<p>它最大的有点在于可以使用JavaScript 和 HTML来构建跨平台的桌面应用。</p>
+<p>我们常见的文本编辑器 atom，vscode和知名的游戏引擎cocos2dx推出的游戏编辑器cocos creator就是基于<a href="http://electron.atom.io/" target="_blank" rel="external">Electron</a>开发的。</p>
+<p>这直接降低了桌面应用开发的难度，并且兼容许多js版本的功能，尤其对于游戏开发，十分友好。</p>
+<p>由于近期工具开发的需要，接触了node.js开发，后续会有相关的学习笔记，来整理学习的过程。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://electron.atom.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Electron&lt;/a&gt;是一个基于node.js的跨平台桌面应用组件（暂且称之为组件，对node.js只是初学，不知道标准的称呼是什么）。&lt;/
+    
+    </summary>
+    
+      <category term="Electron" scheme="http://coldwinter2.github.io/categories/Electron/"/>
+    
+    
+      <category term="Electron" scheme="http://coldwinter2.github.io/tags/Electron/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>风格修改</title>
+    <link href="http://coldwinter2.github.io/2016/11/style/"/>
+    <id>http://coldwinter2.github.io/2016/11/style/</id>
+    <published>2016-11-10T09:52:52.000Z</published>
+    <updated>2016-11-10T09:53:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="新的风格"><a href="#新的风格" class="headerlink" title="新的风格"></a>新的风格</h3><h4 id="修改了一次标题风格"><a href="#修改了一次标题风格" class="headerlink" title="修改了一次标题风格"></a>修改了一次标题风格</h4><p>背景改为了黑色，与前景色互换了，这样更符合程序员的习惯，而且看多了，也不会觉得累。</p>
+<p>按照管理，应当有一些仪式性的东西。比如，helloworld</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.write(<span class="string">"Hello Coldwinter's blog"</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">print</span>(<span class="string">'Hello Coldwinter'</span>s blog<span class="string">')</span></div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">printf</span>(<span class="string">"%s"</span>,<span class="string">"Hello Coldwinter's blog"</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">echo</span> <span class="string">"Hello Coldwinter's blog"</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>各种代码的高亮</p>
+</blockquote>
+<ol>
+<li>表格的支持</li>
+<li>有序的</li>
+</ol>
+<ul>
+<li>无序的</li>
+<li>以及不知道是什么的</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;新的风格&quot;&gt;&lt;a href=&quot;#新的风格&quot; class=&quot;headerlink&quot; title=&quot;新的风格&quot;&gt;&lt;/a&gt;新的风格&lt;/h3&gt;&lt;h4 id=&quot;修改了一次标题风格&quot;&gt;&lt;a href=&quot;#修改了一次标题风格&quot; class=&quot;headerlink&quot; title=
+    
+    </summary>
+    
+    
+      <category term="日记" scheme="http://coldwinter2.github.io/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一篇文章</title>
+    <link href="http://coldwinter2.github.io/2016/11/hello-world/"/>
+    <id>http://coldwinter2.github.io/2016/11/hello-world/</id>
+    <published>2016-11-10T09:50:52.000Z</published>
+    <updated>2016-11-14T01:38:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一直想坚持写博客，但是结果总是各种站点被关停，因此很久都没有好好写过博客。</p>
+<p>最近终于下定决心，在github上创建了自己的博客站点，以后会经常来更新点东西。权当自己的日常笔记。</p>
+<p>希望有兴趣的朋友来坐坐。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直想坚持写博客，但是结果总是各种站点被关停，因此很久都没有好好写过博客。&lt;/p&gt;
+&lt;p&gt;最近终于下定决心，在github上创建了自己的博客站点，以后会经常来更新点东西。权当自己的日常笔记。&lt;/p&gt;
+&lt;p&gt;希望有兴趣的朋友来坐坐。&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
