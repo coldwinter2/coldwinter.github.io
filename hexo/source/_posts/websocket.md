@@ -1,6 +1,6 @@
 ---
-title: Express + socket.io 聊天程序踩坑实录
-date: 2016-11-14 13:20:13
+title: Express + socket.io 聊天程序
+date: 2016-11-17 13:44:59
 tags: 
 - webSocket
 - socket.io
@@ -9,19 +9,8 @@ category:
 - webSocket
 ---
 
-### 起因
 
-&nbsp;&nbsp;&nbsp;&nbsp;本文其实没有其实没有很特别的内容，只不过是写一个简单的node.js下express+socket.io的基础示例。不过就是这样一个网上随处都可以找到的示例，却让我踩出了一个不大不小的坑。教程有很多，我随便贴一些连接上来，基本写法都一样，大部分应当都是复制粘贴来的。例如：
-
-
-[使用Node.js+Socket.IO搭建WebSocket实时应用](http://www.open-open.com/lib/view/open1402479198587.html)
-
-[Node.js + Web Socket 打造即时聊天程序嗨聊](http://www.cnblogs.com/Wayou/p/hichat_built_with_nodejs_socket.html)
-
-[NodeJS+Express+Socket.io的一个简单例子](http://www.tuicool.com/articles/fmeQVjZ)
-
-
-下面，我就以一个聊天程序来说明一下踩坑的过程。
+### 基础环境
 
 
 1. 下载安装node.js(自行百度）
@@ -35,101 +24,143 @@ category:
 9. 在js目录中安装socket.io.js,这个文件在 `node\_modules/socket.io\_client` 内
 10. 创建相应的 `index.js`、`www/index.html`文件
 
-OK，基本的环境搭建到此结束。下面开始踩坑。
 
+### 详细说明
 
-### 踩坑过程
+#### 服务端
 
-#### 1.Client端引用Socket.io.js的问题
-
-首先说，socket.io不是一定要放在socket.io文件夹内的，几乎网上大部分教程，代码里都写着
-
-```html
-<script src="socket.io/socket.io.js"></script>
-```
-
-这让很多刚来入门的新人，以为，需要吧socket.io.js放在一个叫做socket.io的文件夹里，并且提供访问。其实是没必要的。
-因为已经存在一个叫socket.io\_client的包，在socket.io在创建的时候会自己注册一个socket.io的url访问，因此用户无需干预。
-
-其实这个socket.io.js也可以放在任何位置，只要从[socket.io](http://socket.io/)下载对应的socket的独立js文件，就当做普通的js一样一用就可以了，无需了解服务端内部究竟干了什么。
-
-然而很多人发现了，按照教程，socket.io怎么也无法连接成功。如果自己手动引入了别的socket.io.js而且打开浏览器的开发者工具，就会看到一个http请求 http://localhost:xxxx/socket.io/?EIO=xxxx  返回了404错误。由此很可能会联想到，和这个文件的路径有关。
-
-其实这个错误和这个没关系，而和服务端的代码有关。
-这就引出了教程中的第二个坑。
-
-
-#### 2.服务端代码的坑
-
-和前面一个坑相比，这个才是正经的坑，上面那个只可能影响到一些喜欢深入思考的初学者，但是下面这个坑，绝对会影响到所有初学者。
-
-
-含坑代码
-
-```javascript
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-
-app.get('/', function(req, res){
-  res.sendfile('index.html');
-});
-
-io.on('connection', function(socket){
-  console.log('a user connected');
-    
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
-
-    io.emit('chat message', msg);
-  });
-
-});
-
-app.set('port', process.env.PORT || 3000);
-
-var server = http.listen(app.get('port'), function() {
-  console.log('start at port:' + server.address().port);
-});
-```
-
-我随便从前面的教程连接里摘出来的一段主要代码。
-这段代码的坑在于，express是一个完整的http服务器框架，因此不再需要http这个库了。
-在建立本地监听的过程中，不需要 `require('http').Server(app)` 这种写法了，直接调用express的listen方法就可以了，例如：
+先帖代码
 
 ```javascript
 var express = require('express');
 var app = express();
 server = app.listen(8000,function()
 {
-    console.log('服务器启动');
+    console.log('服务器启动:http://localhost:8000');
 });
 io = require('socket.io').listen(server);
-
-// some other code
-
+	
+app.use('/',express.static(__dirname + '/www'));
+	
+//在线用户
+var onlineUsers = {};
+//当前在线人数
+var onlineCount = 0;
+	
+io.on('connection', function(socket){
+	
+	console.log(socket.id);
+	if(!onlineUsers.hasOwnProperty(socket.id)) {
+		onlineUsers[socket.id] = socket;
+		//在线人数+1
+		onlineCount++;
+	}
+	
+	socket.emit('login',{user:socket.id, count:onlineCount});
+	
+	io.emit('enter', {count:onlineCount, user:socket.id});
+	console.log('用户'+socket.id + " 加入的房间，当前在线人数:" + onlineCount);
+	//监听用户退出
+	socket.on('disconnect', function()
+	{
+		//将退出的用户从在线列表中删除
+		if(onlineUsers.hasOwnProperty(socket.id)) {
+			//退出用户的信息
+			//删除
+			delete onlineUsers[socket.id];
+			//在线人数-1
+			onlineCount--;
+	
+			//向所有客户端广播用户退出
+			io.emit('logout', { count:onlineCount, user:socket.id});
+			// console.log(socket.id+'退出了聊天室');
+		}
+        console.log(socket.id +'退出了房间,当前房间人数:' + onlineCount);
+	});
+	
+	//监听用户发布聊天内容
+	socket.on('msg', function(obj){
+		//向所有客户端广播发布的消息
+		io.emit('msg', {user:socket.id, msg:obj,count:onlineCount});
+		console.log(socket.id+'说：'+obj);
+	});
+});
 ```
 
-如果使用http包来创建，则对应的socket.io的相关功能就没有了。
 
-### 踩坑分析
+##### 说明：
 
-其实这个坑，并不是原博文作者的问题，而是版本迭代问题。
+不同于网上其它的例子，这里直接用express的对象启动监听，就可以返回一个server对象。
+如果希望监听在逻辑的最后执行，可以先执行创建server(`createServer`)，再监听。
+另外，选择8000端口，是因为，在mac下，访问80端口需要相应的权限，因此避免用此端口可以免去开发中的一些麻烦。等正式环境再做调整。
 
-要避免坑1，就要去阅读socket.io的api文档，里面写的很清楚，如果创建socket.io的时候没有带路径参数，默认创建在socket.io路径下，可以通过如下代码：
+
+
+#### 客户端
+
+客户端的代码结合的jquery来使用，我只帖重点部分。
+
 
 ```javascript
-io = require('socket.io')(server,'js');
+<body>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script>
+
+
+    var user_id = '';
+
+
+    $(document).ready(function(){
+
+        var socket=io.connect();//与服务器进行连接
+
+        $("#send").click(function(){
+            var data = $("#text").val();
+            socket.emit('msg', data );
+            $("#msg").val( $("#msg").val() + "\n我:" + data ); 
+        })
+
+        socket.on('enter',function(data){
+            
+            $("#online").val('当前在线人数:' + data.count);
+
+        });
+
+        socket.on('logout',function(data){
+            $("#online").val('当前在线人数:' + data.count);
+        });
+
+        socket.on('login',function(data){
+            user_id = data.user;
+            $("#online").val('当前在线人数:' + data.count);
+        });
+
+        socket.on('msg',function(data){
+            $("#online").val('当前在线人数:' + data.count);
+            if(data.user == user_id) return;
+            $("#msg").val( $("#msg").val() + "\n" + data.user +':'+data.msg);
+
+
+        })
+
+    })
+
+    </script>
+    ......
 ```
+   
+##### 说明
+引入的js文件 `socket.io/socket.io.js` 这个是由服务器创建的访问，我们不必真的创建一个目录来存放一个真实的socket.io.js文件，当然，如果你的站点动静分离，或者有特别的需求，可以从网站下载相应的文件，放在相应的目录下提供访问，也是完全没有问题的。
 
-这样就可以把 `<script src="socket.io/socket.io.js"></script>` 换成 `<script src="js/socket.io.js"></script>` 了
+具体socket的绑定事件，可以从[socket.io官方](http://socket.io)的文档里找到相应的内容。
 
 
-第二个坑，大概是express经过几个版本的迭代在创建上有一些变化。因为原博文没有说明`node.js` `socket.io`和`express`的版本。
+### 写在最后
 
-所以写教程第一步就是说明当前环境，如果后续有人发现代码无法测试通过，可以先去找对应的版本试试
+本文只是为了贴一段代码，做一个备忘。这部分内容还会继续深入学习，这个笔记很持续更新一段时间，直到我搞清楚webSocket为止。
 
-下面附上我自己的测试环境
+下面附上我自己的各组件版本
 
 ```
 node.js    v6.9.1
