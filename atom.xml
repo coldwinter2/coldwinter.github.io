@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://coldwinter2.github.io/"/>
-  <updated>2017-02-07T02:21:05.965Z</updated>
+  <updated>2017-02-07T04:01:04.063Z</updated>
   <id>http://coldwinter2.github.io/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网络API整理</title>
+    <link href="http://coldwinter2.github.io/2017/02/storage/"/>
+    <id>http://coldwinter2.github.io/2017/02/storage/</id>
+    <published>2017-02-07T03:19:36.000Z</published>
+    <updated>2017-02-07T04:01:04.063Z</updated>
+    
+    <content type="html"><![CDATA[<p>收集整理了一些可能用到的网络API，便于编程时使用，适合没有自己的服务器的开发人员。</p>
+<ol>
+<li>获取北京时间API<br><code>http://www.114time.com/api/clock.php</code></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;收集整理了一些可能用到的网络API，便于编程时使用，适合没有自己的服务器的开发人员。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;获取北京时间API&lt;br&gt;&lt;code&gt;http://www.114time.com/api/clock.php&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+    
+    </summary>
+    
+      <category term="网络资源" scheme="http://coldwinter2.github.io/categories/%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90/"/>
+    
+    
+      <category term="网络资源" scheme="http://coldwinter2.github.io/tags/%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90/"/>
+    
+  </entry>
   
   <entry>
     <title>AndoridSDK镜像地址</title>
