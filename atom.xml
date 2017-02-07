@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://coldwinter2.github.io/"/>
-  <updated>2016-11-28T02:55:46.000Z</updated>
+  <updated>2017-02-07T02:21:05.965Z</updated>
   <id>http://coldwinter2.github.io/</id>
   
   <author>
@@ -16,11 +16,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>AndoridSDK镜像地址</title>
+    <link href="http://coldwinter2.github.io/2017/02/qq-mirr/"/>
+    <id>http://coldwinter2.github.io/2017/02/qq-mirr/</id>
+    <published>2017-02-07T02:12:12.000Z</published>
+    <updated>2017-02-07T02:21:05.965Z</updated>
+    
+    <content type="html"><![CDATA[<p>很多Android开发者都会面临GFW的封杀，我们也是各种见招拆招。<br>昨天突然发现腾讯干了一件非常利国利民的事情，那就是提供了一个下载速度相当可观的镜像站点。</p>
+<p>站点地址:<a href="http://android-mirror.bugly.qq.com:8080/">http://android-mirror.bugly.qq.com:8080/</a></p>
+<p>这里有xcode，unity，adt，androidSDK，NDK，eclipse，JDK等资源提供下载，并且可以作为androidSDK的更新镜像使用，具体的使用方法也给出了详细的图文帮助</p>
+<p><a href="http://android-mirror.bugly.qq.com:8080/include/usage.html">点击这里查看帮助</a></p>
+<p>希望对大家有所帮助</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;很多Android开发者都会面临GFW的封杀，我们也是各种见招拆招。&lt;br&gt;昨天突然发现腾讯干了一件非常利国利民的事情，那就是提供了一个下载速度相当可观的镜像站点。&lt;/p&gt;
+&lt;p&gt;站点地址:&lt;a href=&quot;http://android-mirror.bugly.qq.co
+    
+    </summary>
+    
+      <category term="Android" scheme="http://coldwinter2.github.io/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="http://coldwinter2.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>小猫钓鱼</title>
     <link href="http://coldwinter2.github.io/2016/11/cat-fishing/"/>
     <id>http://coldwinter2.github.io/2016/11/cat-fishing/</id>
     <published>2016-11-28T02:32:00.000Z</published>
-    <updated>2016-11-28T02:55:46.000Z</updated>
+    <updated>2017-02-07T02:03:30.340Z</updated>
     
     <content type="html"><![CDATA[<p>有一天，猫妈妈带着小猫到河边去钓鱼。</p>
 <p>一只蜻蜓飞来了，这只蜻蜓可真漂亮呀，小猫越看越喜欢，于是放下鱼竿去捉蜻蜓。蜻蜓飞走了，小猫空手回到河边。一看，妈妈已经钓到了一条大鱼。 　　</p>
@@ -53,7 +81,7 @@
     <link href="http://coldwinter2.github.io/2016/11/websocket/"/>
     <id>http://coldwinter2.github.io/2016/11/websocket/</id>
     <published>2016-11-17T05:44:59.000Z</published>
-    <updated>2016-11-17T05:45:01.000Z</updated>
+    <updated>2017-02-07T02:03:30.340Z</updated>
     
     <content type="html"><![CDATA[<h3 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h3><ol>
 <li>下载安装node.js(自行百度）</li>
@@ -105,7 +133,7 @@
     <link href="http://coldwinter2.github.io/2016/11/electron-setup/"/>
     <id>http://coldwinter2.github.io/2016/11/electron-setup/</id>
     <published>2016-11-12T04:12:45.000Z</published>
-    <updated>2016-11-14T01:38:52.000Z</updated>
+    <updated>2017-02-07T02:03:30.340Z</updated>
     
     <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;对于node.js的各种模块安装，最头疼的莫过于下载了。安装包体积巨大，GFW功能强大，服务器在国外，下载成功的几率很小。因此Electron的安装也是很麻烦的。</p>
 <h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p>1、在安装步骤执行到 <code>&gt; node install.js</code> 时，按ctrl+c中断过程<br>2、阅读install.js的源代码<br>3、找到使用本地缓存的逻辑<br>4、手动下载zip文件，建立本地缓存，之后使用本地文件进行安装</p>
@@ -141,7 +169,7 @@
     <link href="http://coldwinter2.github.io/2016/11/electron-intr/"/>
     <id>http://coldwinter2.github.io/2016/11/electron-intr/</id>
     <published>2016-11-12T04:10:20.000Z</published>
-    <updated>2016-11-14T01:38:52.000Z</updated>
+    <updated>2017-02-07T02:03:30.340Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://electron.atom.io/">Electron</a>是一个基于node.js的跨平台桌面应用组件（暂且称之为组件，对node.js只是初学，不知道标准的称呼是什么）。</p>
 <p>它最大的有点在于可以使用JavaScript 和 HTML来构建跨平台的桌面应用。</p>
@@ -169,7 +197,7 @@
     <link href="http://coldwinter2.github.io/2016/11/style/"/>
     <id>http://coldwinter2.github.io/2016/11/style/</id>
     <published>2016-11-10T09:52:52.000Z</published>
-    <updated>2016-11-10T09:53:16.000Z</updated>
+    <updated>2017-02-07T02:03:30.340Z</updated>
     
     <content type="html"><![CDATA[<h3 id="新的风格"><a href="#新的风格" class="headerlink" title="新的风格"></a>新的风格</h3><h4 id="修改了一次标题风格"><a href="#修改了一次标题风格" class="headerlink" title="修改了一次标题风格"></a>修改了一次标题风格</h4><p>背景改为了黑色，与前景色互换了，这样更符合程序员的习惯，而且看多了，也不会觉得累。</p>
 <p>按照管理，应当有一些仪式性的东西。比如，helloworld</p>
@@ -206,7 +234,7 @@
     <link href="http://coldwinter2.github.io/2016/11/hello-world/"/>
     <id>http://coldwinter2.github.io/2016/11/hello-world/</id>
     <published>2016-11-10T09:50:52.000Z</published>
-    <updated>2016-11-14T01:38:52.000Z</updated>
+    <updated>2017-02-07T02:03:30.340Z</updated>
     
     <content type="html"><![CDATA[<p>一直想坚持写博客，但是结果总是各种站点被关停，因此很久都没有好好写过博客。</p>
 <p>最近终于下定决心，在github上创建了自己的博客站点，以后会经常来更新点东西。权当自己的日常笔记。</p>
