@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://coldwinter2.github.io/"/>
-  <updated>2017-02-07T04:01:04.063Z</updated>
+  <updated>2017-03-08T04:14:04.000Z</updated>
   <id>http://coldwinter2.github.io/</id>
   
   <author>
@@ -16,11 +16,49 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>在cocos2dx-lua中调试lua代码</title>
+    <link href="http://coldwinter2.github.io/2017/03/cocos-lua-debug/"/>
+    <id>http://coldwinter2.github.io/2017/03/cocos-lua-debug/</id>
+    <published>2017-03-08T03:09:29.000Z</published>
+    <updated>2017-03-08T04:14:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>lua是游戏开发中常用的脚本语言。本文主要讲述如何在vscode中搭建针对cocos2dx-lua的debug环境，以实现断点和单步调试。</p>
+<h2 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h2><p>首先所需的基础环境包括:<br>vscode<br>node.js<br>cocos2dx-lua(我使用的是3.14.1版本，其他版本尚未测试,理论上2.x版本也可用)</p>
+<h2 id="lua调试环境搭建"><a href="#lua调试环境搭建" class="headerlink" title="lua调试环境搭建"></a>lua调试环境搭建</h2><h4 id="Step-1-安装vscode扩展插件-lua-Debugger"><a href="#Step-1-安装vscode扩展插件-lua-Debugger" class="headerlink" title="Step 1: 安装vscode扩展插件 lua Debugger"></a>Step 1: 安装vscode扩展插件 <code>lua Debugger</code></h4><p><img src="/img/cocos_lua_debug/lua_0.png" alt="图1"></p>
+<p>之后按照配置说明，下载<code>vscode-debuggee.lua</code>并且复制到cocos2dx-lua的src目录下（目录随意，只要require的时候能够require到就可以），这里需要注意一下引入debuggee的代码，第一行的<code>local json = require &#39;dkjson&#39;</code>不是必须的，这里只需要提供一个，包含 encode和decode方法的json包即可，可以用cjson也可以用cocos2dx-lua自带的json.lua，这个json工具是用来解析和发送调试指令的。</p>
+<h4 id="Step-2-配置Debug插件"><a href="#Step-2-配置Debug插件" class="headerlink" title="Step 2: 配置Debug插件"></a>Step 2: 配置Debug插件</h4><p>在debug面板增加调试配置，选择<code>Lua Debugger</code>，如图<br><img src="/img/cocos_lua_debug/lua_1.png" alt=""></p>
+<p>之后会打开配置选项<br><img src="/img/cocos_lua_debug/lua_2.png" alt=""><br>我们用到的设置，只有最后一个<code>wait</code>的配置。这里需要重点关注<code>sourceBasePath</code>用来设置代码的根目录，当断点触发时，调试器会根据相对路径拼接上这个基础路径，来查找对应的lua代码，如果不设置正确，那么调试的时候将找不到对应的lua代码，导致调试器报错。</p>
+<h4 id="Step-3-引入调试插件"><a href="#Step-3-引入调试插件" class="headerlink" title="Step 3: 引入调试插件"></a>Step 3: 引入调试插件</h4><p>设置好后，我们去修改cocos2dx-lua的代码，<br><img src="/img/cocos_lua_debug/lua_3.png" alt=""></p>
+<p>打开cocos2dx-lua的默认入口lua文件<code>controller.lua</code>，在这个文件的合适位置（合适位置的意思是，保证json是可用的，如果引入其他的json库，则不必将代码放在上图所示位置)加入启动调试器的代码。如果不是本机调试，还需要设置IP地址和相应的端口号。具体请参考<code>Lua Debugger</code>的配置帮助。</p>
+<h4 id="Step-4：-开启调试之旅"><a href="#Step-4：-开启调试之旅" class="headerlink" title="Step 4： 开启调试之旅"></a>Step 4： 开启调试之旅</h4><p>最后，随便找个文件，打一个断点（文中断点位置为AccelerometerTest.lua），然后启动调试器，会有下图所示提示。</p>
+<p><img src="/img/cocos_lua_debug/lua_4.png" alt=""></p>
+<p>最后打开你的vs/xcode/android/ios 工程，运行（我这里是在windows下用vs运行了win32项目工程),启动后，等待连接界面消失，表示调试器已经成功连接。<br>然后触发断点，断点成功，如图所示：</p>
+<p><img src="/img/cocos_lua_debug/lua_5.png" alt=""></p>
+<p>左侧可以看到变量内容，右侧鼠标指向相应的变量，可以看到具体的变量信息。可以单步逐行执行代码。</p>
+<p>至此，cocos2dx-lua的调试环境搭建完成。</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>vscode还是十分强大的，cocos2dx-js的调试环境搭建相对更加简单一些,后续会整理一篇搭建cocos2dx-js调试环境的文章。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;lua是游戏开发中常用的脚本语言。本文主要讲述如何在vscode中搭建针对cocos2dx-lua的debug环境，以实现断点和单步调试。&lt;/p&gt;
+&lt;h2 id=&quot;基础环境&quot;&gt;&lt;a href=&quot;#基础环境&quot; class=&quot;headerlink&quot; title=&quot;基础环境&quot;&gt;&lt;
+    
+    </summary>
+    
+      <category term="cocos2dx" scheme="http://coldwinter2.github.io/categories/cocos2dx/"/>
+    
+    
+      <category term="cocos2dx lua debug vscode" scheme="http://coldwinter2.github.io/tags/cocos2dx-lua-debug-vscode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>网络API整理</title>
     <link href="http://coldwinter2.github.io/2017/02/storage/"/>
     <id>http://coldwinter2.github.io/2017/02/storage/</id>
     <published>2017-02-07T03:19:36.000Z</published>
-    <updated>2017-02-07T04:01:04.063Z</updated>
+    <updated>2017-03-08T01:45:40.604Z</updated>
     
     <content type="html"><![CDATA[<p>收集整理了一些可能用到的网络API，便于编程时使用，适合没有自己的服务器的开发人员。</p>
 <ol>
@@ -50,7 +88,7 @@
     <link href="http://coldwinter2.github.io/2017/02/qq-mirr/"/>
     <id>http://coldwinter2.github.io/2017/02/qq-mirr/</id>
     <published>2017-02-07T02:12:12.000Z</published>
-    <updated>2017-02-07T02:21:05.965Z</updated>
+    <updated>2017-03-08T01:45:40.580Z</updated>
     
     <content type="html"><![CDATA[<p>很多Android开发者都会面临GFW的封杀，我们也是各种见招拆招。<br>昨天突然发现腾讯干了一件非常利国利民的事情，那就是提供了一个下载速度相当可观的镜像站点。</p>
 <p>站点地址:<a href="http://android-mirror.bugly.qq.com:8080/">http://android-mirror.bugly.qq.com:8080/</a></p>
@@ -78,7 +116,7 @@
     <link href="http://coldwinter2.github.io/2016/11/cat-fishing/"/>
     <id>http://coldwinter2.github.io/2016/11/cat-fishing/</id>
     <published>2016-11-28T02:32:00.000Z</published>
-    <updated>2017-02-07T02:03:30.340Z</updated>
+    <updated>2017-03-08T01:45:40.557Z</updated>
     
     <content type="html"><![CDATA[<p>有一天，猫妈妈带着小猫到河边去钓鱼。</p>
 <p>一只蜻蜓飞来了，这只蜻蜓可真漂亮呀，小猫越看越喜欢，于是放下鱼竿去捉蜻蜓。蜻蜓飞走了，小猫空手回到河边。一看，妈妈已经钓到了一条大鱼。 　　</p>
@@ -111,7 +149,7 @@
     <link href="http://coldwinter2.github.io/2016/11/websocket/"/>
     <id>http://coldwinter2.github.io/2016/11/websocket/</id>
     <published>2016-11-17T05:44:59.000Z</published>
-    <updated>2017-02-07T02:03:30.340Z</updated>
+    <updated>2017-03-08T01:45:40.605Z</updated>
     
     <content type="html"><![CDATA[<h3 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h3><ol>
 <li>下载安装node.js(自行百度）</li>
@@ -163,7 +201,7 @@
     <link href="http://coldwinter2.github.io/2016/11/electron-setup/"/>
     <id>http://coldwinter2.github.io/2016/11/electron-setup/</id>
     <published>2016-11-12T04:12:45.000Z</published>
-    <updated>2017-02-07T02:03:30.340Z</updated>
+    <updated>2017-03-08T01:45:40.579Z</updated>
     
     <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;对于node.js的各种模块安装，最头疼的莫过于下载了。安装包体积巨大，GFW功能强大，服务器在国外，下载成功的几率很小。因此Electron的安装也是很麻烦的。</p>
 <h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p>1、在安装步骤执行到 <code>&gt; node install.js</code> 时，按ctrl+c中断过程<br>2、阅读install.js的源代码<br>3、找到使用本地缓存的逻辑<br>4、手动下载zip文件，建立本地缓存，之后使用本地文件进行安装</p>
@@ -199,7 +237,7 @@
     <link href="http://coldwinter2.github.io/2016/11/electron-intr/"/>
     <id>http://coldwinter2.github.io/2016/11/electron-intr/</id>
     <published>2016-11-12T04:10:20.000Z</published>
-    <updated>2017-02-07T02:03:30.340Z</updated>
+    <updated>2017-03-08T01:45:40.579Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://electron.atom.io/">Electron</a>是一个基于node.js的跨平台桌面应用组件（暂且称之为组件，对node.js只是初学，不知道标准的称呼是什么）。</p>
 <p>它最大的有点在于可以使用JavaScript 和 HTML来构建跨平台的桌面应用。</p>
@@ -227,7 +265,7 @@
     <link href="http://coldwinter2.github.io/2016/11/style/"/>
     <id>http://coldwinter2.github.io/2016/11/style/</id>
     <published>2016-11-10T09:52:52.000Z</published>
-    <updated>2017-02-07T02:03:30.340Z</updated>
+    <updated>2017-03-08T01:45:40.604Z</updated>
     
     <content type="html"><![CDATA[<h3 id="新的风格"><a href="#新的风格" class="headerlink" title="新的风格"></a>新的风格</h3><h4 id="修改了一次标题风格"><a href="#修改了一次标题风格" class="headerlink" title="修改了一次标题风格"></a>修改了一次标题风格</h4><p>背景改为了黑色，与前景色互换了，这样更符合程序员的习惯，而且看多了，也不会觉得累。</p>
 <p>按照管理，应当有一些仪式性的东西。比如，helloworld</p>
@@ -264,7 +302,7 @@
     <link href="http://coldwinter2.github.io/2016/11/hello-world/"/>
     <id>http://coldwinter2.github.io/2016/11/hello-world/</id>
     <published>2016-11-10T09:50:52.000Z</published>
-    <updated>2017-02-07T02:03:30.340Z</updated>
+    <updated>2017-03-08T01:45:40.580Z</updated>
     
     <content type="html"><![CDATA[<p>一直想坚持写博客，但是结果总是各种站点被关停，因此很久都没有好好写过博客。</p>
 <p>最近终于下定决心，在github上创建了自己的博客站点，以后会经常来更新点东西。权当自己的日常笔记。</p>
