@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://coldwinter2.github.io/"/>
-  <updated>2017-03-08T04:14:04.000Z</updated>
+  <updated>2017-06-25T16:23:13.000Z</updated>
   <id>http://coldwinter2.github.io/</id>
   
   <author>
@@ -16,11 +16,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>pomelo简介</title>
+    <link href="http://coldwinter2.github.io/2017/06/pomelo/"/>
+    <id>http://coldwinter2.github.io/2017/06/pomelo/</id>
+    <published>2017-06-25T16:15:44.000Z</published>
+    <updated>2017-06-25T16:23:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="pomelo简介"><a href="#pomelo简介" class="headerlink" title="pomelo简介"></a>pomelo简介</h3><p>pomelo 是网易推出的一个基于nodejs的服务端框架，主要用于游戏服务器端的开发。</p>
+<p>这个框架又很多值得学习的地方，包括负载均衡，通信，架构，逻辑调度等等，总之一句话，当今游戏服务器所需的特性在这个框架里都能够有所体现。</p>
+<p>但是要想用它做企业开发，还是需要费一番功夫的。毕竟框架还是比较简陋，很多地方不是足够的方便。</p>
+<p>近期在研究nodejs相关的桌面及服务器相关的逻辑。也许会有一些踩坑的笔记留下来。</p>
+<p>有兴趣的童鞋可以关注一下。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;pomelo简介&quot;&gt;&lt;a href=&quot;#pomelo简介&quot; class=&quot;headerlink&quot; title=&quot;pomelo简介&quot;&gt;&lt;/a&gt;pomelo简介&lt;/h3&gt;&lt;p&gt;pomelo 是网易推出的一个基于nodejs的服务端框架，主要用于游戏服务器端的开发。&lt;/
+    
+    </summary>
+    
+      <category term="node.js" scheme="http://coldwinter2.github.io/categories/node-js/"/>
+    
+    
+      <category term="nodejs" scheme="http://coldwinter2.github.io/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
     <title>在cocos2dx-lua中调试lua代码</title>
     <link href="http://coldwinter2.github.io/2017/03/cocos-lua-debug/"/>
     <id>http://coldwinter2.github.io/2017/03/cocos-lua-debug/</id>
     <published>2017-03-08T03:09:29.000Z</published>
-    <updated>2017-03-08T04:14:04.000Z</updated>
+    <updated>2017-06-17T02:58:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>lua是游戏开发中常用的脚本语言。本文主要讲述如何在vscode中搭建针对cocos2dx-lua的debug环境，以实现断点和单步调试。</p>
 <h2 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h2><p>首先所需的基础环境包括:<br>vscode<br>node.js<br>cocos2dx-lua(我使用的是3.14.1版本，其他版本尚未测试,理论上2.x版本也可用)</p>
@@ -58,7 +85,7 @@
     <link href="http://coldwinter2.github.io/2017/02/storage/"/>
     <id>http://coldwinter2.github.io/2017/02/storage/</id>
     <published>2017-02-07T03:19:36.000Z</published>
-    <updated>2017-03-08T01:45:40.604Z</updated>
+    <updated>2017-06-17T02:58:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>收集整理了一些可能用到的网络API，便于编程时使用，适合没有自己的服务器的开发人员。</p>
 <ol>
@@ -88,7 +115,7 @@
     <link href="http://coldwinter2.github.io/2017/02/qq-mirr/"/>
     <id>http://coldwinter2.github.io/2017/02/qq-mirr/</id>
     <published>2017-02-07T02:12:12.000Z</published>
-    <updated>2017-03-08T01:45:40.580Z</updated>
+    <updated>2017-06-17T02:58:14.000Z</updated>
     
     <content type="html"><![CDATA[<p>很多Android开发者都会面临GFW的封杀，我们也是各种见招拆招。<br>昨天突然发现腾讯干了一件非常利国利民的事情，那就是提供了一个下载速度相当可观的镜像站点。</p>
 <p>站点地址:<a href="http://android-mirror.bugly.qq.com:8080/">http://android-mirror.bugly.qq.com:8080/</a></p>
@@ -116,7 +143,7 @@
     <link href="http://coldwinter2.github.io/2016/11/cat-fishing/"/>
     <id>http://coldwinter2.github.io/2016/11/cat-fishing/</id>
     <published>2016-11-28T02:32:00.000Z</published>
-    <updated>2017-03-08T01:45:40.557Z</updated>
+    <updated>2016-12-26T17:57:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>有一天，猫妈妈带着小猫到河边去钓鱼。</p>
 <p>一只蜻蜓飞来了，这只蜻蜓可真漂亮呀，小猫越看越喜欢，于是放下鱼竿去捉蜻蜓。蜻蜓飞走了，小猫空手回到河边。一看，妈妈已经钓到了一条大鱼。 　　</p>
@@ -149,7 +176,7 @@
     <link href="http://coldwinter2.github.io/2016/11/websocket/"/>
     <id>http://coldwinter2.github.io/2016/11/websocket/</id>
     <published>2016-11-17T05:44:59.000Z</published>
-    <updated>2017-03-08T01:45:40.605Z</updated>
+    <updated>2016-12-26T17:57:30.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="基础环境"><a href="#基础环境" class="headerlink" title="基础环境"></a>基础环境</h3><ol>
 <li>下载安装node.js(自行百度）</li>
@@ -201,7 +228,7 @@
     <link href="http://coldwinter2.github.io/2016/11/electron-setup/"/>
     <id>http://coldwinter2.github.io/2016/11/electron-setup/</id>
     <published>2016-11-12T04:12:45.000Z</published>
-    <updated>2017-03-08T01:45:40.579Z</updated>
+    <updated>2016-11-13T03:35:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;对于node.js的各种模块安装，最头疼的莫过于下载了。安装包体积巨大，GFW功能强大，服务器在国外，下载成功的几率很小。因此Electron的安装也是很麻烦的。</p>
 <h3 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h3><p>1、在安装步骤执行到 <code>&gt; node install.js</code> 时，按ctrl+c中断过程<br>2、阅读install.js的源代码<br>3、找到使用本地缓存的逻辑<br>4、手动下载zip文件，建立本地缓存，之后使用本地文件进行安装</p>
@@ -237,7 +264,7 @@
     <link href="http://coldwinter2.github.io/2016/11/electron-intr/"/>
     <id>http://coldwinter2.github.io/2016/11/electron-intr/</id>
     <published>2016-11-12T04:10:20.000Z</published>
-    <updated>2017-03-08T01:45:40.579Z</updated>
+    <updated>2016-11-13T02:33:10.000Z</updated>
     
     <content type="html"><![CDATA[<p><a href="http://electron.atom.io/">Electron</a>是一个基于node.js的跨平台桌面应用组件（暂且称之为组件，对node.js只是初学，不知道标准的称呼是什么）。</p>
 <p>它最大的有点在于可以使用JavaScript 和 HTML来构建跨平台的桌面应用。</p>
@@ -265,7 +292,7 @@
     <link href="http://coldwinter2.github.io/2016/11/style/"/>
     <id>http://coldwinter2.github.io/2016/11/style/</id>
     <published>2016-11-10T09:52:52.000Z</published>
-    <updated>2017-03-08T01:45:40.604Z</updated>
+    <updated>2016-11-12T03:20:49.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="新的风格"><a href="#新的风格" class="headerlink" title="新的风格"></a>新的风格</h3><h4 id="修改了一次标题风格"><a href="#修改了一次标题风格" class="headerlink" title="修改了一次标题风格"></a>修改了一次标题风格</h4><p>背景改为了黑色，与前景色互换了，这样更符合程序员的习惯，而且看多了，也不会觉得累。</p>
 <p>按照管理，应当有一些仪式性的东西。比如，helloworld</p>
@@ -302,7 +329,7 @@
     <link href="http://coldwinter2.github.io/2016/11/hello-world/"/>
     <id>http://coldwinter2.github.io/2016/11/hello-world/</id>
     <published>2016-11-10T09:50:52.000Z</published>
-    <updated>2017-03-08T01:45:40.580Z</updated>
+    <updated>2016-11-13T02:20:21.000Z</updated>
     
     <content type="html"><![CDATA[<p>一直想坚持写博客，但是结果总是各种站点被关停，因此很久都没有好好写过博客。</p>
 <p>最近终于下定决心，在github上创建了自己的博客站点，以后会经常来更新点东西。权当自己的日常笔记。</p>
