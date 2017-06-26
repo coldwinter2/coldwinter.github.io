@@ -139,39 +139,6 @@
   </entry>
   
   <entry>
-    <title>小猫钓鱼</title>
-    <link href="http://coldwinter2.github.io/2016/11/cat-fishing/"/>
-    <id>http://coldwinter2.github.io/2016/11/cat-fishing/</id>
-    <published>2016-11-28T02:32:00.000Z</published>
-    <updated>2016-12-26T17:57:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>有一天，猫妈妈带着小猫到河边去钓鱼。</p>
-<p>一只蜻蜓飞来了，这只蜻蜓可真漂亮呀，小猫越看越喜欢，于是放下鱼竿去捉蜻蜓。蜻蜓飞走了，小猫空手回到河边。一看，妈妈已经钓到了一条大鱼。 　　</p>
-<p>小猫想：我也要钓一条大鱼，就又拿起鱼竿钓鱼。</p>
-<p>不一会儿，一只蝴蝶飞来了，这只蝴蝶可真漂亮呀，小猫越看越喜欢，于是放下鱼竿，又去捉蝴蝶。蝴蝶没捉到，小猫又空着手回到河边。一看，妈妈又钓了一条大鱼。 　　</p>
-<p>小猫对妈妈说：“我怎么就钓不到鱼呢！”</p>
-<p>妈妈说：“钓鱼要一心一意，你一会儿捉蜻蜓，一会儿捉蝴蝶，当然钓不到鱼了。”</p>
-<p>小猫听了妈妈的话，一心一意地钓鱼，终于钓到了一条大鱼。</p>
-<p>其实这么简单的道理，却有很多人不动。做游戏不专心朝着一点做，非要左冲右突，结果最终什么都没做成。有些SB策划和产品完全意识不到这一点。<br>正所谓 <strong>不怕虎一样的对手，就怕猪一样的队友</strong>。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;有一天，猫妈妈带着小猫到河边去钓鱼。&lt;/p&gt;
-&lt;p&gt;一只蜻蜓飞来了，这只蜻蜓可真漂亮呀，小猫越看越喜欢，于是放下鱼竿去捉蜻蜓。蜻蜓飞走了，小猫空手回到河边。一看，妈妈已经钓到了一条大鱼。 　　&lt;/p&gt;
-&lt;p&gt;小猫想：我也要钓一条大鱼，就又拿起鱼竿钓鱼。&lt;/p&gt;
-&lt;p&gt;不一会
-    
-    </summary>
-    
-      <category term="随笔" scheme="http://coldwinter2.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="游戏人生" scheme="http://coldwinter2.github.io/tags/%E6%B8%B8%E6%88%8F%E4%BA%BA%E7%94%9F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Express + socket.io 聊天程序</title>
     <link href="http://coldwinter2.github.io/2016/11/websocket/"/>
     <id>http://coldwinter2.github.io/2016/11/websocket/</id>
