@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://coldwinter2.github.io/"/>
+  <link href="http://coldwinter.cc/"/>
   <updated>2017-07-04T09:31:08.000Z</updated>
-  <id>http://coldwinter2.github.io/</id>
+  <id>http://coldwinter.cc/</id>
   
   <author>
     <name>coldwinter</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>编译CocosBuilder 3.5 踩坑实录</title>
-    <link href="http://coldwinter2.github.io/2017/07/compile-cocosbuilder/"/>
-    <id>http://coldwinter2.github.io/2017/07/compile-cocosbuilder/</id>
+    <link href="http://coldwinter.cc/2017/07/compile-cocosbuilder/"/>
+    <id>http://coldwinter.cc/2017/07/compile-cocosbuilder/</id>
     <published>2017-07-04T09:13:18.000Z</published>
     <updated>2017-07-04T09:31:08.000Z</updated>
     
@@ -57,17 +57,17 @@
     
     </summary>
     
-      <category term="cocos2dx" scheme="http://coldwinter2.github.io/categories/cocos2dx/"/>
+      <category term="cocos2dx" scheme="http://coldwinter.cc/categories/cocos2dx/"/>
     
     
-      <category term="cocosbuilder" scheme="http://coldwinter2.github.io/tags/cocosbuilder/"/>
+      <category term="cocosbuilder" scheme="http://coldwinter.cc/tags/cocosbuilder/"/>
     
   </entry>
   
   <entry>
     <title>pomelo简介</title>
-    <link href="http://coldwinter2.github.io/2017/06/pomelo/"/>
-    <id>http://coldwinter2.github.io/2017/06/pomelo/</id>
+    <link href="http://coldwinter.cc/2017/06/pomelo/"/>
+    <id>http://coldwinter.cc/2017/06/pomelo/</id>
     <published>2017-06-25T16:15:44.000Z</published>
     <updated>2017-06-26T01:44:18.000Z</updated>
     
@@ -84,17 +84,17 @@
     
     </summary>
     
-      <category term="node.js" scheme="http://coldwinter2.github.io/categories/node-js/"/>
+      <category term="node.js" scheme="http://coldwinter.cc/categories/node-js/"/>
     
     
-      <category term="nodejs" scheme="http://coldwinter2.github.io/tags/nodejs/"/>
+      <category term="nodejs" scheme="http://coldwinter.cc/tags/nodejs/"/>
     
   </entry>
   
   <entry>
     <title>在cocos2dx-lua中调试lua代码</title>
-    <link href="http://coldwinter2.github.io/2017/03/cocos-lua-debug/"/>
-    <id>http://coldwinter2.github.io/2017/03/cocos-lua-debug/</id>
+    <link href="http://coldwinter.cc/2017/03/cocos-lua-debug/"/>
+    <id>http://coldwinter.cc/2017/03/cocos-lua-debug/</id>
     <published>2017-03-08T03:09:29.000Z</published>
     <updated>2017-06-26T01:44:18.000Z</updated>
     
@@ -122,17 +122,17 @@
     
     </summary>
     
-      <category term="cocos2dx" scheme="http://coldwinter2.github.io/categories/cocos2dx/"/>
+      <category term="cocos2dx" scheme="http://coldwinter.cc/categories/cocos2dx/"/>
     
     
-      <category term="cocos2dx lua debug vscode" scheme="http://coldwinter2.github.io/tags/cocos2dx-lua-debug-vscode/"/>
+      <category term="cocos2dx lua debug vscode" scheme="http://coldwinter.cc/tags/cocos2dx-lua-debug-vscode/"/>
     
   </entry>
   
   <entry>
     <title>网络API整理</title>
-    <link href="http://coldwinter2.github.io/2017/02/storage/"/>
-    <id>http://coldwinter2.github.io/2017/02/storage/</id>
+    <link href="http://coldwinter.cc/2017/02/storage/"/>
+    <id>http://coldwinter.cc/2017/02/storage/</id>
     <published>2017-02-07T03:19:36.000Z</published>
     <updated>2017-06-26T01:44:18.000Z</updated>
     
@@ -152,17 +152,17 @@
     
     </summary>
     
-      <category term="网络资源" scheme="http://coldwinter2.github.io/categories/%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90/"/>
+      <category term="网络资源" scheme="http://coldwinter.cc/categories/%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90/"/>
     
     
-      <category term="网络资源" scheme="http://coldwinter2.github.io/tags/%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90/"/>
+      <category term="网络资源" scheme="http://coldwinter.cc/tags/%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90/"/>
     
   </entry>
   
   <entry>
     <title>AndoridSDK镜像地址</title>
-    <link href="http://coldwinter2.github.io/2017/02/qq-mirr/"/>
-    <id>http://coldwinter2.github.io/2017/02/qq-mirr/</id>
+    <link href="http://coldwinter.cc/2017/02/qq-mirr/"/>
+    <id>http://coldwinter.cc/2017/02/qq-mirr/</id>
     <published>2017-02-07T02:12:12.000Z</published>
     <updated>2017-06-26T01:44:18.000Z</updated>
     
@@ -180,17 +180,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://coldwinter2.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://coldwinter.cc/categories/Android/"/>
     
     
-      <category term="Android" scheme="http://coldwinter2.github.io/tags/Android/"/>
+      <category term="Android" scheme="http://coldwinter.cc/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>Express + socket.io 聊天程序</title>
-    <link href="http://coldwinter2.github.io/2016/11/websocket/"/>
-    <id>http://coldwinter2.github.io/2016/11/websocket/</id>
+    <link href="http://coldwinter.cc/2016/11/websocket/"/>
+    <id>http://coldwinter.cc/2016/11/websocket/</id>
     <published>2016-11-17T05:44:59.000Z</published>
     <updated>2017-06-26T01:44:18.000Z</updated>
     
@@ -228,21 +228,21 @@
     
     </summary>
     
-      <category term="node.js" scheme="http://coldwinter2.github.io/categories/node-js/"/>
+      <category term="node.js" scheme="http://coldwinter.cc/categories/node-js/"/>
     
-      <category term="webSocket" scheme="http://coldwinter2.github.io/categories/node-js/webSocket/"/>
+      <category term="webSocket" scheme="http://coldwinter.cc/categories/node-js/webSocket/"/>
     
     
-      <category term="webSocket" scheme="http://coldwinter2.github.io/tags/webSocket/"/>
+      <category term="webSocket" scheme="http://coldwinter.cc/tags/webSocket/"/>
     
-      <category term="socket.io" scheme="http://coldwinter2.github.io/tags/socket-io/"/>
+      <category term="socket.io" scheme="http://coldwinter.cc/tags/socket-io/"/>
     
   </entry>
   
   <entry>
     <title>Electron 安装</title>
-    <link href="http://coldwinter2.github.io/2016/11/electron-setup/"/>
-    <id>http://coldwinter2.github.io/2016/11/electron-setup/</id>
+    <link href="http://coldwinter.cc/2016/11/electron-setup/"/>
+    <id>http://coldwinter.cc/2016/11/electron-setup/</id>
     <published>2016-11-12T04:12:45.000Z</published>
     <updated>2017-06-26T01:44:18.000Z</updated>
     
@@ -268,17 +268,17 @@
     
     </summary>
     
-      <category term="Electron" scheme="http://coldwinter2.github.io/categories/Electron/"/>
+      <category term="Electron" scheme="http://coldwinter.cc/categories/Electron/"/>
     
     
-      <category term="Electron" scheme="http://coldwinter2.github.io/tags/Electron/"/>
+      <category term="Electron" scheme="http://coldwinter.cc/tags/Electron/"/>
     
   </entry>
   
   <entry>
     <title>Electron 简介</title>
-    <link href="http://coldwinter2.github.io/2016/11/electron-intr/"/>
-    <id>http://coldwinter2.github.io/2016/11/electron-intr/</id>
+    <link href="http://coldwinter.cc/2016/11/electron-intr/"/>
+    <id>http://coldwinter.cc/2016/11/electron-intr/</id>
     <published>2016-11-12T04:10:20.000Z</published>
     <updated>2017-06-26T01:44:18.000Z</updated>
     
@@ -296,17 +296,17 @@
     
     </summary>
     
-      <category term="Electron" scheme="http://coldwinter2.github.io/categories/Electron/"/>
+      <category term="Electron" scheme="http://coldwinter.cc/categories/Electron/"/>
     
     
-      <category term="Electron" scheme="http://coldwinter2.github.io/tags/Electron/"/>
+      <category term="Electron" scheme="http://coldwinter.cc/tags/Electron/"/>
     
   </entry>
   
   <entry>
     <title>风格修改</title>
-    <link href="http://coldwinter2.github.io/2016/11/style/"/>
-    <id>http://coldwinter2.github.io/2016/11/style/</id>
+    <link href="http://coldwinter.cc/2016/11/style/"/>
+    <id>http://coldwinter.cc/2016/11/style/</id>
     <published>2016-11-10T09:52:52.000Z</published>
     <updated>2017-06-26T01:44:18.000Z</updated>
     
@@ -336,14 +336,14 @@
     </summary>
     
     
-      <category term="日记" scheme="http://coldwinter2.github.io/tags/%E6%97%A5%E8%AE%B0/"/>
+      <category term="日记" scheme="http://coldwinter.cc/tags/%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>第一篇文章</title>
-    <link href="http://coldwinter2.github.io/2016/11/hello-world/"/>
-    <id>http://coldwinter2.github.io/2016/11/hello-world/</id>
+    <link href="http://coldwinter.cc/2016/11/hello-world/"/>
+    <id>http://coldwinter.cc/2016/11/hello-world/</id>
     <published>2016-11-10T09:50:52.000Z</published>
     <updated>2017-06-26T01:44:18.000Z</updated>
     
