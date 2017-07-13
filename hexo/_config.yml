@@ -77,6 +77,12 @@ theme: maupassant
 deploy:
   type:
 
+sitemap:
+  path: sitemap.xml
+
+baidusitemap:
+  path: baidusitemap.xml
+
 # 高亮设置
 # highlight:
 #   enable: true
